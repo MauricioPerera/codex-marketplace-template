@@ -1,0 +1,13 @@
+{
+  "name": "example-plugin",
+  "displayName": "Example Plugin",
+  "version": "0.1.0",
+  "description": "Plugin de ejemplo para comenzar tu propio marketplace Claude Code y Codex.",
+  "author": {
+    "name": "YOUR_DISPLAY_NAME",
+    "url": "https://github.com/YOUR_GITHUB_USER"
+  },
+  "repository": "https://github.com/YOUR_GITHUB_USER/YOUR_REPOSITORY",
+  "license": "MIT",
+  "keywords": ["workflow", "automation", "example"]
+}

@@ -7,12 +7,26 @@ function render() {
   const visible = catalog.plugins.filter((plugin) => (category === 'all' || plugin.category === category) && `${plugin.name} ${plugin.displayName} ${plugin.description} ${plugin.capabilities.join(' ')}`.toLowerCase().includes(query));
   $('#result-count').textContent = visible.length;
   $('#empty-state').hidden = visible.length > 0;
-  $('#plugin-grid').innerHTML = visible.map((plugin) => `<article class="plugin-card"><div class="card-top"><div class="plugin-icon">${plugin.icon || '✦'}</div><span class="badge">${plugin.category}</span></div><h3>${plugin.displayName || plugin.name}</h3><p>${plugin.description}</p><div class="card-footer"><span class="version">v${plugin.version} · ${plugin.capabilities.join(' · ')}</span><a class="card-link" href="${plugin.source}" target="_blank" rel="noreferrer">Ver plugin ↗</a></div></article>`).join('');
+  $('#plugin-grid').innerHTML = visible.map((plugin) => `<article class="plugin-card"><div class="card-top"><div class="plugin-icon">${plugin.icon || '✦'}</div><span class="badge">${plugin.category}</span></div><h3>${plugin.displayName || plugin.name}</h3><p>${plugin.description}</p><div class="platform-install-links"><button class="install-link claude-link" type="button" data-install-claude="${plugin.name}">Copiar para Claude Code</button><button class="install-link codex-link" type="button" data-install-codex="${plugin.name}">Copiar para Codex</button><span class="install-status" role="status" aria-live="polite"></span></div><div class="card-footer"><span class="version">v${plugin.version} · ${plugin.capabilities.join(' · ')}</span><a class="card-link" href="${plugin.source}" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>`).join('');
+  document.querySelectorAll('[data-install-claude]').forEach((button) => button.addEventListener('click', () => copyInstallCommand(button, 'claude')));
+  document.querySelectorAll('[data-install-codex]').forEach((button) => button.addEventListener('click', () => copyInstallCommand(button, 'codex')));
+}
+
+function installCommand(pluginName, platform) {
+  return platform === 'claude'
+    ? `claude plugin marketplace add YOUR_GITHUB_USER/YOUR_REPOSITORY\nclaude plugin install ${pluginName}@YOUR_MARKETPLACE_NAME-claude`
+    : `codex plugin marketplace add YOUR_GITHUB_USER/YOUR_REPOSITORY\ncodex plugin install ${pluginName}`;
+}
+
+async function copyInstallCommand(button, platform) {
+  const command = installCommand(button.dataset[platform === 'claude' ? 'installClaude' : 'installCodex'], platform);
+  const status = button.parentElement.querySelector('.install-status');
+  try { await navigator.clipboard.writeText(command); status.textContent = 'Comandos copiados'; } catch { status.textContent = command; }
 }
 
 function setup() {
   const { marketplace } = catalog;
-  document.title = `${marketplace.displayName || marketplace.name} | Codex`;
+  document.title = `${marketplace.displayName || marketplace.name} | Claude Code + Codex`;
   $('#hero-description').textContent = marketplace.description;
   $('#github-link').href = marketplace.github;
   $('#footer-github').href = marketplace.github;
