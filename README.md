@@ -12,6 +12,10 @@ Plantilla pública para crear un marketplace de plugins de Codex desde tu propia
 6. En **Settings → Pages**, selecciona **GitHub Actions** como fuente si GitHub no lo habilita automáticamente.
 7. Haz push a `main`; el workflow publicará el catálogo en `https://YOUR_GITHUB_USER.github.io/YOUR_REPOSITORY/`.
 
+## Uso con agentes de IA
+
+Consulta [AGENTS.md](AGENTS.md) antes de pedir a una IA que agregue o actualice plugins. Allí se documentan las fuentes de verdad, el flujo de sincronización, las validaciones, la publicación y las acciones que requieren confirmación.
+
 ## Estructura
 
 ```text

@@ -6,6 +6,10 @@
 
 Replace `YOUR_GITHUB_USER`, `YOUR_REPOSITORY`, `YOUR_MARKETPLACE_NAME`, and `YOUR_DISPLAY_NAME` in the repository. Add plugin entries to `.agents/plugins/marketplace.json` and `docs/catalog.json`.
 
+## Instructions for AI agents
+
+Read `AGENTS.md` before editing the repository. It defines the source of truth, the workflow for adding or updating plugins, required validation commands, synchronization rules between the marketplace and the web catalog, and changes that require human confirmation.
+
 ## Source
 
 - Repository: https://github.com/YOUR_GITHUB_USER/YOUR_REPOSITORY
