@@ -1,10 +1,14 @@
-# YOUR_DISPLAY_NAME Marketplace Codex
+# YOUR_DISPLAY_NAME Marketplace
 
-> Public catalog of Codex plugins created by YOUR_DISPLAY_NAME.
+> Public catalog of Claude Code and Codex plugins created by YOUR_DISPLAY_NAME.
 
 ## How to customize
 
-Replace `YOUR_GITHUB_USER`, `YOUR_REPOSITORY`, `YOUR_MARKETPLACE_NAME`, and `YOUR_DISPLAY_NAME` in the repository. Add plugin entries to `.agents/plugins/marketplace.json` and `docs/catalog.json`.
+Replace `YOUR_GITHUB_USER`, `YOUR_REPOSITORY`, `YOUR_MARKETPLACE_NAME`, and `YOUR_DISPLAY_NAME` in the repository. Add plugin entries to `.agents/plugins/marketplace.json`, `.claude-plugin/marketplace.json`, and `docs/catalog.json`.
+
+Claude Code marketplace manifest: `.claude-plugin/marketplace.json`.
+Codex marketplace manifest: `.agents/plugins/marketplace.json`.
+Shared plugin skills: `plugins/<plugin>/skills/`.
 
 ## Instructions for AI agents
 

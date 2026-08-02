@@ -1,8 +1,8 @@
 {
   "marketplace": {
     "name": "YOUR_MARKETPLACE_NAME",
-    "displayName": "YOUR_DISPLAY_NAME Marketplace Codex",
-    "description": "Catálogo de plugins Codex creado por YOUR_DISPLAY_NAME.",
+    "displayName": "YOUR_DISPLAY_NAME Marketplace",
+    "description": "Catálogo de plugins para Claude Code y Codex creado por YOUR_DISPLAY_NAME.",
     "author": "YOUR_DISPLAY_NAME",
     "github": "https://github.com/YOUR_GITHUB_USER/YOUR_REPOSITORY",
     "youtube": ""
@@ -14,8 +14,8 @@
       "version": "0.1.0",
       "category": "Productivity",
       "icon": "✦",
-      "description": "Plugin de ejemplo para comenzar tu propio marketplace Codex.",
-      "capabilities": ["Workflow", "Codex"],
+      "description": "Plugin de ejemplo para comenzar tu propio marketplace Claude Code y Codex.",
+      "capabilities": ["Workflow", "Claude Code", "Codex"],
       "source": "https://github.com/YOUR_GITHUB_USER/YOUR_REPOSITORY/tree/main/plugins/example-plugin"
     }
   ]

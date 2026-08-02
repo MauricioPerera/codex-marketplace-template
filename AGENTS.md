@@ -1,11 +1,13 @@
 # Instrucciones para agentes de IA
 
-Este repositorio es una plantilla para marketplaces públicos de plugins de Codex. Al modificarlo, conservar la estructura y trabajar con cambios pequeños, verificables y reversibles.
+Este repositorio es una plantilla para marketplaces públicos de plugins de Claude Code y Codex. Al modificarlo, conservar la estructura y trabajar con cambios pequeños, verificables y reversibles.
 
 ## Fuentes de verdad
 
+- `.claude-plugin/marketplace.json`: catálogo instalable por Claude Code. Usa `source` como ruta relativa `./plugins/<plugin-name>`.
 - `.agents/plugins/marketplace.json`: catálogo instalable por Codex. La lista `plugins[]` define qué plugins ofrece el marketplace.
-- `plugins/<plugin-name>/.codex-plugin/plugin.json`: identidad, versión, autoría y metadata de cada plugin.
+- `plugins/<plugin-name>/.claude-plugin/plugin.json`: identidad, versión, autoría y metadata de cada plugin para Claude Code.
+- `plugins/<plugin-name>/.codex-plugin/plugin.json`: identidad, versión, autoría y metadata de cada plugin para Codex.
 - `plugins/<plugin-name>/skills/`: skills incluidas en el plugin.
 - `docs/catalog.json`: datos visibles en la GitHub Page. Debe mantenerse sincronizado con `marketplace.json`.
 - `docs/index.html`, `docs/app.js` y `docs/styles.css`: presentación y comportamiento del catálogo.
@@ -15,9 +17,9 @@ Este repositorio es una plantilla para marketplaces públicos de plugins de Code
 ## Flujo para agregar un plugin
 
 1. Normalizar el nombre en minúsculas con guiones: `mi-plugin`.
-2. Crear `plugins/mi-plugin/.codex-plugin/plugin.json` con `name`, `version`, `description`, `author`, `skills` e `interface` válidos.
+2. Crear `plugins/mi-plugin/.claude-plugin/plugin.json` y `plugins/mi-plugin/.codex-plugin/plugin.json` con metadata equivalente.
 3. Añadir al menos una skill bajo `plugins/mi-plugin/skills/mi-plugin/SKILL.md`.
-4. Añadir la misma entrada a `.agents/plugins/marketplace.json` con `source.path` relativo `./plugins/mi-plugin`, política y categoría.
+4. Añadir la entrada Claude a `.claude-plugin/marketplace.json` con `source: "./plugins/mi-plugin"` y la entrada Codex a `.agents/plugins/marketplace.json` con `source.path` relativo `./plugins/mi-plugin`.
 5. Añadir una ficha equivalente a `docs/catalog.json`, incluyendo nombre visible, versión, categoría, descripción, capacidades y URL de GitHub.
 6. Actualizar `docs/llms.txt` con el plugin y su fuente.
 7. Reemplazar cualquier placeholder `YOUR_*` si el repositorio ya fue personalizado.
@@ -40,7 +42,7 @@ python <ruta-a-codex>/skills/.system/plugin-creator/scripts/validate_plugin.py p
 python <ruta-a-codex>/skills/.system/skill-creator/scripts/quick_validate.py plugins/mi-plugin/skills/mi-plugin
 ```
 
-También comprobar que `marketplace.json` y `docs/catalog.json` son JSON válidos, que `docs/sitemap.xml` es XML válido y que los enlaces de `docs/robots.txt` y `docs/llms.txt` usan la URL pública correcta.
+También comprobar que ambos `marketplace.json`, ambos `plugin.json` y `docs/catalog.json` son JSON válidos, que `docs/sitemap.xml` es XML válido y que los enlaces de `docs/robots.txt` y `docs/llms.txt` usan la URL pública correcta.
 
 ## Publicación
 

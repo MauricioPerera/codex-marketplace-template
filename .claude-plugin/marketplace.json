@@ -1,0 +1,16 @@
+{
+  "name": "YOUR_MARKETPLACE_NAME-claude",
+  "owner": {
+    "name": "YOUR_DISPLAY_NAME",
+    "url": "https://github.com/YOUR_GITHUB_USER"
+  },
+  "description": "Plugins de YOUR_DISPLAY_NAME para Claude Code.",
+  "plugins": [
+    {
+      "name": "example-plugin",
+      "displayName": "Example Plugin",
+      "source": "./plugins/example-plugin",
+      "category": "productivity"
+    }
+  ]
+}
