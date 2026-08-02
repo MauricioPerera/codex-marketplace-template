@@ -1,0 +1,18 @@
+{
+  "name": "example-plugin",
+  "version": "0.1.0",
+  "description": "Plugin de ejemplo para comenzar tu propio marketplace Codex.",
+  "author": {
+    "name": "YOUR_DISPLAY_NAME"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Example Plugin",
+    "shortDescription": "Plugin de ejemplo para tu marketplace.",
+    "longDescription": "Reemplaza este plugin por una herramienta o workflow propio.",
+    "developerName": "YOUR_DISPLAY_NAME",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Ayúdame a usar este plugin."
+  }
+}

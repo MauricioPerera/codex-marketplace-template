@@ -1,0 +1,12 @@
+# YOUR_DISPLAY_NAME Marketplace Codex
+
+> Public catalog of Codex plugins created by YOUR_DISPLAY_NAME.
+
+## How to customize
+
+Replace `YOUR_GITHUB_USER`, `YOUR_REPOSITORY`, `YOUR_MARKETPLACE_NAME`, and `YOUR_DISPLAY_NAME` in the repository. Add plugin entries to `.agents/plugins/marketplace.json` and `docs/catalog.json`.
+
+## Source
+
+- Repository: https://github.com/YOUR_GITHUB_USER/YOUR_REPOSITORY
+- Catalog: https://YOUR_GITHUB_USER.github.io/YOUR_REPOSITORY/

@@ -1,0 +1,22 @@
+{
+  "marketplace": {
+    "name": "YOUR_MARKETPLACE_NAME",
+    "displayName": "YOUR_DISPLAY_NAME Marketplace Codex",
+    "description": "Catálogo de plugins Codex creado por YOUR_DISPLAY_NAME.",
+    "author": "YOUR_DISPLAY_NAME",
+    "github": "https://github.com/YOUR_GITHUB_USER/YOUR_REPOSITORY",
+    "youtube": ""
+  },
+  "plugins": [
+    {
+      "name": "example-plugin",
+      "displayName": "Example Plugin",
+      "version": "0.1.0",
+      "category": "Productivity",
+      "icon": "✦",
+      "description": "Plugin de ejemplo para comenzar tu propio marketplace Codex.",
+      "capabilities": ["Workflow", "Codex"],
+      "source": "https://github.com/YOUR_GITHUB_USER/YOUR_REPOSITORY/tree/main/plugins/example-plugin"
+    }
+  ]
+}
