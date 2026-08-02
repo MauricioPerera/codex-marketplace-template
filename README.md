@@ -51,4 +51,4 @@ En Codex, registra el marketplace desde Plugins y busca `example-plugin`. En Cla
 
 ## Autoría y licencia
 
-Reemplaza el autor de ejemplo en los manifiestos, README y datos estructurados. Esta plantilla no impone una licencia: añade la licencia que corresponda antes de distribuir tus plugins.
+Reemplaza el autor de ejemplo en los manifiestos, README y datos estructurados. La plantilla se distribuye bajo la [licencia MIT](LICENSE); revisa también las licencias de los plugins y activos que agregues.
