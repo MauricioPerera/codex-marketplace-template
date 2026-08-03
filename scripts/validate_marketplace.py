@@ -34,6 +34,20 @@ def main():
             elif not list((plugin / "skills").glob("*/SKILL.md")): errors.append(f"Missing skill: {name}")
     if len(names) == 2 and names[0] != names[1]: errors.append("Claude and Codex plugin lists differ")
     if len(categories) == 2 and categories[0] != categories[1]: errors.append("Claude and Codex categories differ")
+    catalog_path = root / "docs" / "catalog.json"
+    if not catalog_path.exists():
+        errors.append("Missing docs/catalog.json")
+    else:
+        try:
+            catalog = load(catalog_path)
+            catalog_names = {entry.get("name") for entry in catalog.get("plugins", [])}
+            if names and catalog_names != names[0]:
+                errors.append("docs/catalog.json plugin list differs from marketplace manifests")
+            catalog_categories = {entry.get("name"): entry.get("category") for entry in catalog.get("plugins", [])}
+            if categories and catalog_categories != categories[0]:
+                errors.append("docs/catalog.json categories differ from marketplace manifests")
+        except Exception as exc:
+            errors.append(f"Invalid JSON docs/catalog.json: {exc}")
     result = {"status": "FAILED" if errors else "PASSED", "errors": errors}
     print(json.dumps(result, indent=2, ensure_ascii=False))
     return 1 if errors else 0
