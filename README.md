@@ -6,7 +6,13 @@ Plantilla pública para crear un marketplace de plugins de Claude Code y Codex d
 
 1. En GitHub, selecciona **Use this template** → **Create a new repository**.
 2. Elige el propietario, nombre y visibilidad de tu nuevo repositorio.
-3. Sustituye los valores `YOUR_GITHUB_USER`, `YOUR_MARKETPLACE_NAME` y `YOUR_DISPLAY_NAME`.
+3. Personaliza la plantilla con el configurador:
+
+   ```bash
+   python scripts/configure_marketplace.py --github-user TU_USUARIO --repository TU_REPOSITORIO --marketplace-name tu-marketplace --display-name "Tu Nombre"
+   ```
+
+   También puedes añadir `--dry-run` para revisar los archivos que cambiará.
 4. Edita `.agents/plugins/marketplace.json` y `.claude-plugin/marketplace.json`, y agrega tus plugins bajo `plugins/`.
 5. Actualiza `docs/catalog.json` con el nombre, descripción, versión y enlace de cada plugin.
 6. En **Settings → Pages**, selecciona **GitHub Actions** como fuente si GitHub no lo habilita automáticamente.
