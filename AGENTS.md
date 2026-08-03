@@ -15,6 +15,7 @@ Este repositorio es una plantilla para marketplaces públicos de plugins de Clau
 - `.github/workflows/pages.yml`: despliegue de la GitHub Page. No cambiarlo salvo que se modifique la estrategia de publicación.
 - `.github/workflows/marketplace-validation.yml`: gate automático para manifests, rutas, skills y JSON.
 - `scripts/validate_marketplace.py`: validador local equivalente al gate de CI; comprueba sincronización del catálogo y coherencia de nombres, versiones y display names entre manifests.
+- `scripts/validate_all.py`: ejecuta la suite unificada que usa CI.
 - `scripts/configure_marketplace.py`: reemplaza de forma segura los placeholders `YOUR_*` al iniciar un marketplace nuevo.
 
 ## Flujo para agregar un plugin
@@ -39,6 +40,12 @@ Este repositorio es una plantilla para marketplaces públicos de plugins de Clau
 ## Validación
 
 Desde la raíz del repositorio, ejecutar:
+
+```powershell
+python scripts/validate_all.py
+```
+
+También comprobar por etapas:
 
 ```powershell
 python <ruta-a-codex>/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/mi-plugin

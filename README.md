@@ -58,6 +58,12 @@ Los dos manifests deben conservar el mismo `name`, `version` y nombre visible. D
 Antes de hacer commit, ejecuta desde la raíz:
 
 ```bash
+python scripts/validate_all.py
+```
+
+El equivalente por etapas es:
+
+```bash
 python scripts/validate_marketplace.py
 python -m json.tool .claude-plugin/marketplace.json > /dev/null
 python -m json.tool .agents/plugins/marketplace.json > /dev/null
