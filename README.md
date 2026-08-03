@@ -22,6 +22,8 @@ Plantilla pública para crear un marketplace de plugins de Claude Code y Codex d
 
 Consulta [AGENTS.md](AGENTS.md) antes de pedir a una IA que agregue o actualice plugins. Allí se documentan las fuentes de verdad, el flujo de sincronización, las validaciones, la publicación y las acciones que requieren confirmación.
 
+Consulta también [SECURITY.md](SECURITY.md) y [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) antes de abrir issues o pull requests.
+
 ## Estructura
 
 ```text

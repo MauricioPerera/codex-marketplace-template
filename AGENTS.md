@@ -17,6 +17,8 @@ Este repositorio es una plantilla para marketplaces públicos de plugins de Clau
 - `scripts/validate_marketplace.py`: validador local equivalente al gate de CI; comprueba sincronización del catálogo y coherencia de nombres, versiones y display names entre manifests.
 - `scripts/validate_all.py`: ejecuta la suite unificada que usa CI.
 - `scripts/configure_marketplace.py`: reemplaza de forma segura los placeholders `YOUR_*` al iniciar un marketplace nuevo.
+- `SECURITY.md` y `CODE_OF_CONDUCT.md`: reglas de seguridad y participación.
+- `.github/CODEOWNERS` y `.github/dependabot.yml`: revisión y actualizaciones de GitHub Actions.
 
 ## Flujo para agregar un plugin
 
