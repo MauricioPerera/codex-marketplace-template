@@ -64,6 +64,7 @@ El validador comprueba que ambos marketplaces contengan los mismos plugins y cat
 - Hacer push a `main` solo cuando las validaciones hayan pasado y el usuario haya autorizado publicar.
 - El workflow de Pages publica `docs/` automáticamente después del push.
 - Si Pages falla por primera configuración, habilitar **Settings → Pages → GitHub Actions** y relanzar el workflow.
+- Los workflows usan `actions/checkout@v6` y `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true`; conservar ambos controles al modificar CI.
 
 ## Acciones que requieren confirmación
 

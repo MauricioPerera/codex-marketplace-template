@@ -74,6 +74,8 @@ node --check docs/app.js
 
 El workflow `Validate marketplace` ejecuta estos controles en cada push y pull request. Comprueba manifests, rutas de plugins, skills, versiones, nombres visibles, categorías y sincronización con `docs/catalog.json`. El workflow `Deploy catalog to GitHub Pages` publica `docs/` cuando la rama `main` recibe cambios.
 
+Los workflows usan `actions/checkout@v6` y optan por Node.js 24. Si utilizas runners autoalojados, mantenlos en una versión compatible con ese runtime.
+
 ## Instalación
 
 En Claude Code, desde la terminal:
