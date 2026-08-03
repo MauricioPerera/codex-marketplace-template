@@ -11,6 +11,17 @@ from pathlib import Path
 
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
+    workflow_errors = []
+    for workflow in (root / ".github" / "workflows").glob("*.yml"):
+        content = workflow.read_text(encoding="utf-8")
+        if "actions/checkout@v4" in content:
+            workflow_errors.append(f"{workflow.name}: uses deprecated checkout@v4")
+        if "actions/checkout@" in content and "FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true" not in content:
+            workflow_errors.append(f"{workflow.name}: missing Node.js 24 opt-in")
+    if workflow_errors:
+        for error in workflow_errors:
+            print(error, file=sys.stderr)
+        return 1
     print("$ python scripts/validate_marketplace.py")
     result = subprocess.run([sys.executable, "scripts/validate_marketplace.py"], cwd=root)
     if result.returncode:
