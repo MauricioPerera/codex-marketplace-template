@@ -10,7 +10,7 @@
       "name": "example-plugin",
       "displayName": "Example Plugin",
       "source": "./plugins/example-plugin",
-      "category": "productivity"
+      "category": "Productivity"
     }
   ]
 }
