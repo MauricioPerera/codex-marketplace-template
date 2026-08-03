@@ -1,18 +1,22 @@
 # YOUR_DISPLAY_NAME Marketplace
 
-> Public catalog of Claude Code and Codex plugins created by YOUR_DISPLAY_NAME.
+> Public catalog of Claude Code and Codex plugins created by YOUR_DISPLAY_NAME. The same repository exposes compatible marketplace manifests for both platforms.
 
 ## How to customize
 
-Replace `YOUR_GITHUB_USER`, `YOUR_REPOSITORY`, `YOUR_MARKETPLACE_NAME`, and `YOUR_DISPLAY_NAME` in the repository. Add plugin entries to `.agents/plugins/marketplace.json`, `.claude-plugin/marketplace.json`, and `docs/catalog.json`.
+Run `python scripts/configure_marketplace.py --github-user USER --repository REPO --marketplace-name NAME --display-name "DISPLAY NAME"` to replace the template placeholders. Add plugin entries to `.agents/plugins/marketplace.json`, `.claude-plugin/marketplace.json`, and `docs/catalog.json`.
 
 Claude Code marketplace manifest: `.claude-plugin/marketplace.json`.
 Codex marketplace manifest: `.agents/plugins/marketplace.json`.
 Shared plugin skills: `plugins/<plugin>/skills/`.
 
+Every cross-platform plugin must include `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, and at least one `skills/<skill>/SKILL.md`. Keep `name`, `version`, and the visible display name synchronized in both manifests.
+
 ## Instructions for AI agents
 
 Read `AGENTS.md` before editing the repository. It defines the source of truth, the workflow for adding or updating plugins, required validation commands, synchronization rules between the marketplace and the web catalog, and changes that require human confirmation.
+
+Before committing, run `python scripts/validate_marketplace.py` and `node --check docs/app.js`. CI repeats these checks and rejects unsynchronized manifests or catalog entries.
 
 ## Source
 

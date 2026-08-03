@@ -24,9 +24,9 @@ Este repositorio es una plantilla para marketplaces públicos de plugins de Clau
 3. Añadir al menos una skill bajo `plugins/mi-plugin/skills/mi-plugin/SKILL.md`.
 4. Añadir la entrada Claude a `.claude-plugin/marketplace.json` con `source: "./plugins/mi-plugin"` y la entrada Codex a `.agents/plugins/marketplace.json` con `source.path` relativo `./plugins/mi-plugin`.
 5. Añadir una ficha equivalente a `docs/catalog.json`, incluyendo nombre visible, versión, categoría, descripción, capacidades y URL de GitHub.
-6. Actualizar `docs/llms.txt` con el plugin y su fuente.
+6. Actualizar `docs/llms.txt` si cambia la identidad, URL o instrucciones operativas del marketplace.
 7. Reemplazar cualquier placeholder `YOUR_*` si el repositorio ya fue personalizado.
-8. Ejecutar las validaciones antes de hacer commit.
+8. Ejecutar `python scripts/validate_marketplace.py`, la validación JSON y `node --check docs/app.js` antes de hacer commit.
 
 ## Flujo para actualizar un plugin
 
@@ -45,7 +45,7 @@ python <ruta-a-codex>/skills/.system/plugin-creator/scripts/validate_plugin.py p
 python <ruta-a-codex>/skills/.system/skill-creator/scripts/quick_validate.py plugins/mi-plugin/skills/mi-plugin
 ```
 
-También comprobar que ambos `marketplace.json`, ambos `plugin.json` y `docs/catalog.json` son JSON válidos, que `docs/sitemap.xml` es XML válido y que los enlaces de `docs/robots.txt` y `docs/llms.txt` usan la URL pública correcta.
+El validador comprueba que ambos marketplaces contengan los mismos plugins y categorías, que cada plugin tenga manifests Claude y Codex coherentes, que exista al menos una skill y que `docs/catalog.json` esté sincronizado. También comprobar que ambos `marketplace.json`, ambos `plugin.json` y `docs/catalog.json` sean JSON válidos, que `docs/sitemap.xml` sea XML válido y que los enlaces de `docs/robots.txt` y `docs/llms.txt` usen la URL pública correcta.
 
 ## Publicación
 

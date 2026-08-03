@@ -42,7 +42,29 @@ Consulta [AGENTS.md](AGENTS.md) antes de pedir a una IA que agregue o actualice 
 
 ## Añadir un plugin
 
-Cada plugin compatible con ambas plataformas necesita `.claude-plugin/plugin.json` y `.codex-plugin/plugin.json`. Sus skills compartidas viven en `skills/`. Después agrega una entrada equivalente en ambos marketplaces y una ficha en `docs/catalog.json`.
+Cada plugin compatible con ambas plataformas necesita esta estructura:
+
+```text
+plugins/mi-plugin/
+├── .claude-plugin/plugin.json
+├── .codex-plugin/plugin.json
+└── skills/mi-plugin/SKILL.md
+```
+
+Los dos manifests deben conservar el mismo `name`, `version` y nombre visible. Después agrega una entrada equivalente en ambos marketplaces y una ficha en `docs/catalog.json`.
+
+## Validación y publicación
+
+Antes de hacer commit, ejecuta desde la raíz:
+
+```bash
+python scripts/validate_marketplace.py
+python -m json.tool .claude-plugin/marketplace.json > /dev/null
+python -m json.tool .agents/plugins/marketplace.json > /dev/null
+node --check docs/app.js
+```
+
+El workflow `Validate marketplace` ejecuta estos controles en cada push y pull request. Comprueba manifests, rutas de plugins, skills, versiones, nombres visibles, categorías y sincronización con `docs/catalog.json`. El workflow `Deploy catalog to GitHub Pages` publica `docs/` cuando la rama `main` recibe cambios.
 
 ## Instalación
 
@@ -54,6 +76,8 @@ claude plugin install example-plugin@YOUR_MARKETPLACE_NAME-claude
 ```
 
 En Codex, registra el marketplace desde Plugins y busca `example-plugin`. En Claude Desktop usa `+ → Plugins → Add plugin`; los comandos `/plugin` solo funcionan dentro de la interfaz interactiva de Claude Code.
+
+La página también ofrece botones de instalación para copiar los comandos de cada plataforma.
 
 ## Autoría y licencia
 
