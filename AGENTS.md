@@ -13,6 +13,8 @@ Este repositorio es una plantilla para marketplaces públicos de plugins de Clau
 - `docs/index.html`, `docs/app.js` y `docs/styles.css`: presentación y comportamiento del catálogo.
 - `docs/robots.txt`, `docs/sitemap.xml` y `docs/llms.txt`: descubrimiento por buscadores y sistemas de IA.
 - `.github/workflows/pages.yml`: despliegue de la GitHub Page. No cambiarlo salvo que se modifique la estrategia de publicación.
+- `.github/workflows/marketplace-validation.yml`: gate automático para manifests, rutas, skills y JSON.
+- `scripts/validate_marketplace.py`: validador local equivalente al gate de CI.
 
 ## Flujo para agregar un plugin
 

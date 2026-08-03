@@ -10,7 +10,7 @@ Plantilla pública para crear un marketplace de plugins de Claude Code y Codex d
 4. Edita `.agents/plugins/marketplace.json` y `.claude-plugin/marketplace.json`, y agrega tus plugins bajo `plugins/`.
 5. Actualiza `docs/catalog.json` con el nombre, descripción, versión y enlace de cada plugin.
 6. En **Settings → Pages**, selecciona **GitHub Actions** como fuente si GitHub no lo habilita automáticamente.
-7. Haz push a `main`; el workflow publicará el catálogo en `https://YOUR_GITHUB_USER.github.io/YOUR_REPOSITORY/`.
+7. Haz push a `main`; CI validará manifests, skills, JSON y JavaScript antes de publicar el catálogo en `https://YOUR_GITHUB_USER.github.io/YOUR_REPOSITORY/`.
 
 ## Uso con agentes de IA
 

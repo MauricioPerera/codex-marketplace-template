@@ -1,0 +1,26 @@
+name: Validate marketplace
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate dual marketplace
+        run: python scripts/validate_marketplace.py
+      - name: Validate JSON manifests
+        shell: bash
+        run: |
+          python -m json.tool .claude-plugin/marketplace.json >/dev/null
+          python -m json.tool .agents/plugins/marketplace.json >/dev/null
+          find plugins -name plugin.json -print0 | xargs -0 -n1 python -m json.tool >/dev/null
+      - name: Check catalog JavaScript
+        run: node --check docs/app.js
